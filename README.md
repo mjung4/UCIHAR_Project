@@ -1,14 +1,14 @@
 ## Introduction
 
-Purpose: Preparing a tidy data that can be used for later analysis
-
+Purpose: 
+Preparing a tidy data on base of an 561-feature vector with time and 
+frequency domain variables (features)
+         
 Raw data: 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 desription of the raw data:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
-
-
 
 ## R Script run_analysis.R 
 
@@ -24,7 +24,7 @@ The directory "UCI HAR Dataset" form the downloaded zip file
 with the needed files hast to be located in the working directory of R.  
 
 Files:
-* featutes: features.txt
+* features: features.txt
 * activities: activity_labels.txt
 * subject_test: subject_test.txt
 * subject_train: subject_train.txt
@@ -56,6 +56,9 @@ New dataset: feature_mean_std
 
 ddply von package "plyr" is used
 New dataset: feature_mean_std_average
+
+# Appropriately labels with descriptive variable names. 
+Labels for the KPIs: Means_..., 
 
 ####write.table() using row.name=FALSE
 

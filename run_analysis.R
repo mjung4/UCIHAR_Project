@@ -49,19 +49,20 @@ activities_train <- read.table("./UCI HAR Dataset/train/y_train.txt",
 
 open_fwf <- laf_open_fwf("./UCI HAR Dataset/test/X_test.txt", 
                  column_widths = rep(16,561), 
-                 column_types =  rep("numeric", 561),
-                 column_names = features$feature
+                 column_types =  rep("numeric", 561)
 ) 
 
 feature_test <- open_fwf[,] 
+names(feature_test) <-  features$feature
+
 
 open_fwf <- laf_open_fwf("./UCI HAR Dataset/train/X_train.txt", 
                          column_widths = rep(16,561), 
-                         column_types =  rep("numeric", 561),
-                         column_names = features$feature
+                         column_types =  rep("numeric", 561)                         
 ) 
 
 feature_train <- open_fwf[,] 
+names(feature_train) <-  features$feature
 
 rm(open_fwf)
 
@@ -84,7 +85,7 @@ feature <- merge(activities, feature, by.x="activity_nr", by.y="activity_nr")
 # Extract only the measurements on the mean and standard deviation for each measurement. 
 
 select_columns <- c(2,4,                      
-                     grep("*mean*|*std*", 
+                     grep("*-mean()*|*-std()*", 
                      names(feature), 
                      ignore.case = TRUE))
 
@@ -100,6 +101,15 @@ feature_mean_std_average <- ddply(
         numcolwise(mean)
 )
 
+
+# Appropriately labels with descriptive variable names. 
+count_kpis <- length(feature_mean_std_average)
+names(feature_mean_std_average) <- 
+        c (names(feature_mean_std_average[1]),
+           names(feature_mean_std_average[2]),
+           paste ("Mean", names(feature_mean_std_average[3:count_kpis]), sep = "_")
+         )
+                                
 # write.table() using row.name=FALSE 
 
 write.table(feature_mean_std_average, file = "feature_mean_std_average.txt", row.name=FALSE)
