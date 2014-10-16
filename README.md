@@ -55,12 +55,12 @@ New dataset: feature_mean_std
 ####for each activity and each subject.
 
 ddply von package "plyr" is used
-New dataset: feature_mean_std_average
+New dataset: featureMean
 
 # Appropriately labels with descriptive variable names. 
 Labels for the KPIs: Means_..., 
 
 ####write.table() using row.name=FALSE
 
-Creates the new file "feature_mean_std_average.txt" on base of feature_mean_std_average 
+Creates the new file "featureMean.txt" on base of feature_mean_std_average 
 The file is created in the workindg directory fo R 

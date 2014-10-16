@@ -95,7 +95,7 @@ feature_mean_std <- feature[select_columns]
 # a second, independent tidy data set with the average of each variable 
 # for each activity and each subject.
 
-feature_mean_std_average <- ddply(
+featureMean <- ddply(
         feature_mean_std, 
         c("activity", "subject_nr"), 
         numcolwise(mean)
@@ -103,16 +103,16 @@ feature_mean_std_average <- ddply(
 
 
 # Appropriately labels with descriptive variable names. 
-count_kpis <- length(feature_mean_std_average)
-names(feature_mean_std_average) <- 
-        c (names(feature_mean_std_average[1]),
-           names(feature_mean_std_average[2]),
-           paste ("Mean", names(feature_mean_std_average[3:count_kpis]), sep = "_")
-         )
-                                
+
+names(featureMean) <- gsub("_", "", names(featureMean)) 
+names(featureMean) <- gsub("-", "", names(featureMean)) 
+names(featureMean) <- gsub("\\(", "", names(featureMean)) 
+names(featureMean) <- gsub("\\)", "", names(featureMean)) 
+names(featureMean) <- tolower(names(featureMean))
+
 # write.table() using row.name=FALSE 
 
-write.table(feature_mean_std_average, file = "feature_mean_std_average.txt", row.name=FALSE)
+write.table(featureMean, file = "featureMean.txt", row.name=FALSE)
 
 
 
