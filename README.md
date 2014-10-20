@@ -214,4 +214,5 @@ new column Names
 write.table() using row.name=FALSE
 
 Creates the new file "featureMean.txt" on base of feature_mean_std_average 
-The file is created in the workindg directory fo R 
+The file is created in the workindg directory of R.
+
