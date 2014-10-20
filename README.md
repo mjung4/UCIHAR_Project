@@ -69,7 +69,13 @@ number of columns in the train dataset:
 first five columns of the train dataset:
 
 ```
-## Error in head(feature_train_original[, 1:5]): object 'feature_train_original' not found
+##     set subject_nr activity_nr tBodyAcc-mean()-X tBodyAcc-mean()-Y
+## 1 train          1           5         0.2885845       -0.02029417
+## 2 train          1           5         0.2784188       -0.01641057
+## 3 train          1           5         0.2796531       -0.01946716
+## 4 train          1           5         0.2791739       -0.02620065
+## 5 train          1           5         0.2766288       -0.01656966
+## 6 train          1           5         0.2771988       -0.01009785
 ```
 
 
