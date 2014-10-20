@@ -42,13 +42,13 @@ The columns set(test or train), subject_nr and activity_nr are added.
 
 eature_test <- cbind(set = "test", subject_test, activities_test, feature_test
 
-number of columns in the test dataset:
+number of rows in the test dataset:
 
 ```
 ## [1] 2947
 ```
 
-first five columns of the test dataset:
+first five rows of the test dataset:
 
 ```
 ##    set subject_nr activity_nr tBodyAcc-mean()-X tBodyAcc-mean()-Y
@@ -60,7 +60,7 @@ first five columns of the test dataset:
 ## 6 test          2           5         0.2792200       -0.01862040
 ```
 
-number of columns in the train dataset:
+number of rows in the train dataset:
 
 ```
 ## [1] 7352
@@ -81,13 +81,16 @@ first five columns of the train dataset:
 
 Merge the training and the test sets to create one data set.
 
-number of columns in the train dataset:
+number of rows in the merged dataset:
 
 ```
 ## [1] 10299
 ```
 
-first five columns of the train dataset:
+
+add descriptive activity names to name the activities in the data set
+
+first five columns of the merged dataset:
 
 ```
 ##   activity_nr activity   set subject_nr tBodyAcc-mean()-X
@@ -98,9 +101,6 @@ first five columns of the train dataset:
 ## 5           1  WALKING train         29         0.2362494
 ## 6           1  WALKING train         29         0.2645428
 ```
-
-
-add descriptive activity names to name the activities in the data set
 
 distinct values of "acitivty"
 
