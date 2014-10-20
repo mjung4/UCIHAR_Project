@@ -169,7 +169,6 @@ New dataset: featureMean
 
 
 Appropriately labels with descriptive variable names. 
-Labels for the KPIs: Means_..., 
 
 new column Names
 
