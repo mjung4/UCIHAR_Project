@@ -113,10 +113,3 @@ names(featureMean) <- tolower(names(featureMean))
 # write.table() using row.name=FALSE 
 
 write.table(featureMean, file = "featureMean.txt", row.name=FALSE)
-
-
-
-
-
-
-
